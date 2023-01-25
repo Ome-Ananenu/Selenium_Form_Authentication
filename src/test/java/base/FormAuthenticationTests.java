@@ -29,7 +29,6 @@ public class FormAuthenticationTests {
     @Test
     public void testToVerifyOutcome_WhenUserLogsInWithValidUsernameAndPassword() throws InterruptedException {
         formAuthenticationPage.fillLoginForm("tomsmith", "SuperSecretPassword!");
-        Thread.sleep(2000);
 
         LoggedInPage loggedInPage = new LoggedInPage(driver);
 
@@ -40,8 +39,6 @@ public class FormAuthenticationTests {
     @Test
     public void testToVerifyOutcomeWhen_UserLogsInWithInValidUsernameAndPassword() throws InterruptedException {
         formAuthenticationPage.fillLoginForm("thomas", "SecretPassword!");
-        Thread.sleep(2000);
-
         String errorMsg = "Your username is invalid!";
 
         assertTrue(formAuthenticationPage.getAlertText().contains(errorMsg));
